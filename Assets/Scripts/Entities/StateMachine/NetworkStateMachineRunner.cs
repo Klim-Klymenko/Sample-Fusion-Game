@@ -15,6 +15,7 @@ namespace Sample.Entities
 
         public override void FixedUpdateNetwork()
         {
+            Debug.Log($"FIXED UPDATE NETWORK {gameObject.name}");
             _stateMachine.Tick(this.Runner.DeltaTime);
         }
     }
