@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2612678671758838795}
   - component: {fileID: 9019365570549851519}
   - component: {fileID: 1206667620336167750}
-  - component: {fileID: 6610118575143010857}
   - component: {fileID: 6532077603307688875}
-  - component: {fileID: 9214350056696319688}
+  - component: {fileID: 8298781338569965780}
+  - component: {fileID: 9183435592954068545}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,21 +71,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 9019365570549851519}
-  - {fileID: 6610118575143010857}
-  - {fileID: 9214350056696319688}
---- !u!114 &6610118575143010857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934479802144991771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ce0284add944b9855fc84a443f4409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementDirection: {x: 0, y: 0, z: 0}
+  - {fileID: 8298781338569965780}
 --- !u!114 &6532077603307688875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
---- !u!114 &9214350056696319688
+--- !u!114 &8298781338569965780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,11 +94,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 934479802144991771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 167c53e135e64aa3b77682e36645c4b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b67959ccde4486aee08f0bc5533fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementComponent: {fileID: 6532077603307688875}
-  _networkInputReceiver: {fileID: 6610118575143010857}
+--- !u!65 &9183435592954068545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934479802144991771}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2043578524128365054
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +130,7 @@ GameObject:
   - component: {fileID: 5830560285982947946}
   - component: {fileID: 778203260556491390}
   m_Layer: 0
-  m_Name: '[VIEW]'
+  m_Name: <View>
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
