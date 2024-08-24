@@ -1,7 +1,7 @@
 using Fusion;
 using UnityEngine;
 
-namespace Sample
+namespace Sample.System
 {
     public sealed class NetworkCharacterProvider : SimulationBehaviour, ICharacterProvider
     {

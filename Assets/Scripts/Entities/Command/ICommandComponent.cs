@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sample
+namespace Sample.Entities
 {
     public interface ICommandComponent
     {

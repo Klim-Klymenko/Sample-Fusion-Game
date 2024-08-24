@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sample
+namespace Sample.System
 {
     public sealed class ClickInput : MonoBehaviour
     {

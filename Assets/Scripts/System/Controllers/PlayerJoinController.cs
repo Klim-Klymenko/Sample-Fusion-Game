@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using Fusion;
+﻿using Fusion;
 using UnityEngine;
 
-namespace Sample
+namespace Sample.System
 {
     public sealed class PlayerJoinController : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     {
@@ -17,6 +16,7 @@ namespace Sample
             }
 
             NetworkObject playerObject = this.Runner.Spawn(_playerPrefab, Vector3.zero, Quaternion.identity, playerRef);
+            playerObject.name = playerRef.ToString();
             this.Runner.SetPlayerObject(playerRef, playerObject);
         }
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Sample
+namespace Sample.System
 {
     public sealed class FusionStartup : MonoBehaviour
     {
