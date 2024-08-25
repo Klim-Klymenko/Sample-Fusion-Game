@@ -1,12 +1,16 @@
-﻿using Fusion;
-using UnityEngine;
+﻿using System;
+using Fusion;
 
 namespace Sample.System
 {
     public sealed class PlayerJoinController : SimulationBehaviour, IPlayerJoined, IPlayerLeft
     {
-        [SerializeField]
-        private NetworkPrefabRef _playerPrefab;
+        private PlayerSpawner _playerSpawner;
+
+        private void Awake()
+        {
+            _playerSpawner = this.GetComponent<PlayerSpawner>();
+        }
 
         void IPlayerJoined.PlayerJoined(PlayerRef playerRef)
         {
@@ -15,9 +19,7 @@ namespace Sample.System
                 return;
             }
 
-            NetworkObject playerObject = this.Runner.Spawn(_playerPrefab, Vector3.zero, Quaternion.identity, playerRef);
-            playerObject.name = playerRef.ToString();
-            this.Runner.SetPlayerObject(playerRef, playerObject);
+            _playerSpawner.SpawnPlayer(playerRef);
         }
 
         void IPlayerLeft.PlayerLeft(PlayerRef playerRef)

@@ -15,7 +15,7 @@ namespace Sample.Entities
             // Debug.Log($"CURRENT STATE {_currentState!.GetType().Name}", this.gameObject);
         }
 
-        public void RS()
+        public void DropState()
         {
             // Debug.Log($"RESET STATE {_currentState?.GetType().Name}", this.gameObject);
             _currentState?.Exit(this.gameObject);

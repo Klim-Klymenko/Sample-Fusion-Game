@@ -19,18 +19,6 @@ namespace Sample.Entities
         public void Attack(GameObject target) => this.RPC_Attack(target.GetComponent<NetworkObject>());
         public void Stop() => this.RPC_Stop();
 
-        [ContextMenu("MOVE")]
-        private void M()
-        {
-            this.RPC_Move(Vector3.zero);
-        }
-
-        [ContextMenu("PATROL")]
-        private void P()
-        {
-            this.RPC_Patrol(Vector3.zero);
-        }
-
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
         public void RPC_Move(Vector3 position) => _stateMachine.ChangeState(new MoveState(position));
 
@@ -47,6 +35,6 @@ namespace Sample.Entities
 
         [ContextMenu("STOP")]
         [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable)]
-        public void RPC_Stop() => _stateMachine.RS();
+        public void RPC_Stop() => _stateMachine.DropState();
     }
 }
