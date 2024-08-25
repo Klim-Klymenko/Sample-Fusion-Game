@@ -21,8 +21,8 @@ namespace Sample.Entities
             Vector3 distanceVector = this.targetPosition - currentPosition;
             distanceVector.y = 0;
 
-            float stoppingDistance = entity.GetComponent<StoppingDistanceComponent>().StoppingDistanceSqr;
-            if (distanceVector.sqrMagnitude <= stoppingDistance)
+            StoppingDistanceComponent distanceComponent = entity.GetComponent<StoppingDistanceComponent>();
+            if (distanceVector.sqrMagnitude <= distanceComponent.DistanceSqr)
             {
                 return;
             }

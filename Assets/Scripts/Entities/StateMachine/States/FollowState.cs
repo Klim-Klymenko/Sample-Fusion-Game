@@ -4,9 +4,9 @@ namespace Sample.Entities
 {
     public sealed class FollowState : IState
     {
-        private readonly GameObject target;
+        private readonly Transform target;
         
-        public FollowState(GameObject target)
+        public FollowState(Transform target)
         {
             this.target = target;
         }
@@ -17,7 +17,17 @@ namespace Sample.Entities
 
         public void Update(GameObject entity, float deltaTime)
         {
-            Debug.Log($"FOLLOW STATE {entity.name}");
+            Vector3 currentPosition = entity.transform.position;
+            Vector3 distanceVector = this.target.position - currentPosition;
+            float distanceSqr = entity.GetComponent<FollowDistanceComponent>().DistanceSqr;
+
+            if (distanceVector.sqrMagnitude <= distanceSqr)
+            {
+                return;
+            }
+
+            Vector3 moveDirection = distanceVector.normalized;
+            entity.GetComponent<MovementComponent>().Move(moveDirection, deltaTime);
         }
 
         public void Exit(GameObject entity)
