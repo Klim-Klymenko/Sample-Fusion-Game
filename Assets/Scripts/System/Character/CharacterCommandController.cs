@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Sample.System
 {
+    //Вызывает команды у игрока
     public sealed class CharacterCommandController : MonoBehaviour
     {
         private ClickInput _clickInput;

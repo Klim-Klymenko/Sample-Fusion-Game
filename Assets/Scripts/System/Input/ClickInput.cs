@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Sample.System
 {
+    //Определяет инпут клика по карте
     public sealed class ClickInput : MonoBehaviour
     {
         public event Action<Vector3> OnPointClicked;

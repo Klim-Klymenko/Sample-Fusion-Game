@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Sample.System
 {
+    //Предоставляет персонажа игрока
     public sealed class CharacterProvider : SimulationBehaviour
     {
         public GameObject Character
