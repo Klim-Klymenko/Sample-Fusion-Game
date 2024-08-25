@@ -29,7 +29,7 @@ namespace Sample.Entities
 
         public void Attack(GameObject target)
         {
-            _stateMachine.ChangeState(new AttackState(target.gameObject));
+            
         }
 
         public void Stop()
