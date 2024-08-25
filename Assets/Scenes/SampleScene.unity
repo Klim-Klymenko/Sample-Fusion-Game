@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 416808395}
   - component: {fileID: 416808394}
   - component: {fileID: 416808397}
+  - component: {fileID: 416808402}
   - component: {fileID: 416808398}
   - component: {fileID: 416808401}
   - component: {fileID: 416808400}
@@ -213,8 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bc64748cf84aae9f5d6171accdcda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab:
-    RawGuidValue: 0918f907b82dfce42b2c3a3dfcf08140
 --- !u!114 &416808399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +254,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdde5f0a7f8847e8befb3740bc3bf10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &416808402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416808393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc88039d324645118f87546b3cab50fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPrefab:
+    RawGuidValue: 0918f907b82dfce42b2c3a3dfcf08140
+  _spawnArea:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 5, y: 0, z: 5}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,8 +596,7 @@ MonoBehaviour:
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: 1815774777}
+  NetworkedBehaviours: []
 --- !u!114 &1815774777
 MonoBehaviour:
   m_ObjectHideFlags: 0

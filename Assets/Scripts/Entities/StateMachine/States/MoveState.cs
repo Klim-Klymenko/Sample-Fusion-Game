@@ -4,22 +4,33 @@ namespace Sample.Entities
 {
     public sealed class MoveState : IState
     {
-        private readonly Vector3 position;
+        private readonly Vector3 targetPosition;
 
-        public MoveState(Vector3 position)
+        public MoveState(Vector3 targetPosition)
         {
-            this.position = position;
+            this.targetPosition = targetPosition;
         }
 
         public void Enter(GameObject entity)
         {
-            
         }
 
         public void Update(GameObject entity, float deltaTime)
         {
-            Debug.Log($"MOVE STATE {entity.name}");
+            Vector3 currentPosition = entity.transform.position;
+            Vector3 distanceVector = this.targetPosition - currentPosition;
+            distanceVector.y = 0;
+
+            float stoppingDistance = entity.GetComponent<StoppingDistanceComponent>().StoppingDistanceSqr;
+            if (distanceVector.sqrMagnitude <= stoppingDistance)
+            {
+                return;
+            }
+
+            Vector3 moveDirection = distanceVector.normalized;
+            entity.GetComponent<MovementComponent>().Move(moveDirection, deltaTime);
         }
+
 
         public void Exit(GameObject entity)
         {

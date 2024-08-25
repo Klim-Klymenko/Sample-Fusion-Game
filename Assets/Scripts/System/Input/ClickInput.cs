@@ -31,12 +31,10 @@ namespace Sample.System
             Transform hitTransform = raycastHit.transform;
             if (hitTransform.CompareTag(GameObjectTags.GROUND))
             {
-                Debug.Log($"POINT CLICKED {raycastHit.point}");
                 this.OnPointClicked?.Invoke(raycastHit.point);
             }
             else if (hitTransform.CompareTag(GameObjectTags.ENTITY))
             {
-                Debug.Log($"TARGET CLICKED {hitTransform.name}");
                 this.OnTargetClicked?.Invoke(hitTransform.gameObject);
             }
         }

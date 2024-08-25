@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Sample.System
 {
-    public sealed class NetworkCharacterProvider : SimulationBehaviour, ICharacterProvider
+    public sealed class CharacterProvider : SimulationBehaviour, ICharacterProvider
     {
         public GameObject Character
         {

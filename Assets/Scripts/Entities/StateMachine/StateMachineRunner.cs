@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Sample.Entities
 {
     [RequireComponent(typeof(StateMachine))]
-    public sealed class NetworkStateMachineRunner : NetworkBehaviour
+    public sealed class StateMachineRunner : NetworkBehaviour
     {
         private StateMachine _stateMachine;
 
@@ -15,7 +15,6 @@ namespace Sample.Entities
 
         public override void FixedUpdateNetwork()
         {
-            Debug.Log($"FIXED UPDATE NETWORK {gameObject.name}");
             _stateMachine.Tick(this.Runner.DeltaTime);
         }
     }

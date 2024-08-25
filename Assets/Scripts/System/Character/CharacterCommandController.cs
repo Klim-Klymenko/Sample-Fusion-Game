@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Sample.System
 {
-    public sealed class CommandController : MonoBehaviour
+    public sealed class CharacterCommandController : MonoBehaviour
     {
         private ClickInput _clickInput;
         private ICharacterProvider _characterProvider;
