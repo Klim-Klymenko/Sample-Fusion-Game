@@ -18,13 +18,18 @@ namespace Sample.Entities
 
         public void TakeDamage(int damage)
         {
-            if (this.Health > 0)
+            if (this.Health <= 0)
             {
-                this.Health = Mathf.Max(0, Health - damage);
-                if (this.Health <= 0)
-                {
-                    this.gameObject.GetComponent<DeathComponent>().Death();
-                }
+                return;
+            }
+
+            this.Health = Mathf.Max(0, Health - damage);
+            Debug.Log($"Take Damage {damage}");
+
+            if (this.Health <= 0)
+            {
+                Debug.Log("Death");
+                this.gameObject.GetComponent<DeathComponent>().Death();
             }
         }
     }

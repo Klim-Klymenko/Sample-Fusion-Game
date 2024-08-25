@@ -15,7 +15,6 @@ namespace Sample.System
         {
             Vector3 spawnPoint = this.RandomSpawnPoint();
             NetworkObject playerObject = this.Runner.Spawn(_playerPrefab, spawnPoint, Quaternion.identity, playerRef);
-            playerObject.name = playerRef.ToString();
             this.Runner.SetPlayerObject(playerRef, playerObject);
         }
 
