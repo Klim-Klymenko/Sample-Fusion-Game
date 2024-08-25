@@ -19,9 +19,9 @@ namespace Sample.Entities
             _currentState = null;
         }
 
-        public void Tick(float deltaTime)
+        public override void FixedUpdateNetwork()
         {
-            _currentState?.Update(this.gameObject, deltaTime);
+            _currentState?.Update(this.gameObject, this.Runner.DeltaTime);
         }
     }
 }

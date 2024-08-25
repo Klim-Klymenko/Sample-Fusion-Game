@@ -6,12 +6,12 @@ namespace Sample.System
     public sealed class CharacterCommandController : MonoBehaviour
     {
         private ClickInput _clickInput;
-        private ICharacterProvider _characterProvider;
+        private CharacterProvider _characterProvider;
 
         private void Awake()
         {
             _clickInput = this.GetComponent<ClickInput>();
-            _characterProvider = this.GetComponent<ICharacterProvider>();
+            _characterProvider = this.GetComponent<CharacterProvider>();
         }
         
         private void OnEnable()
@@ -24,7 +24,7 @@ namespace Sample.System
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                _characterProvider.Character.GetComponent<ICommandProvider>().Stop();
+                _characterProvider.Character.GetComponent<CommandProvider>().Stop();
             }
         }
 
@@ -38,13 +38,13 @@ namespace Sample.System
         {
             if (Input.GetKey(KeyCode.M))
             {
-                _characterProvider.Character.GetComponent<ICommandProvider>().Move(point);
+                _characterProvider.Character.GetComponent<CommandProvider>().Move(point);
                 return;
             }
 
             if (Input.GetKey(KeyCode.P))
             {
-                _characterProvider.Character.GetComponent<ICommandProvider>().Patrol(point);
+                _characterProvider.Character.GetComponent<CommandProvider>().Patrol(point);
             }
         }
 
@@ -57,12 +57,12 @@ namespace Sample.System
 
             if (Input.GetKey(KeyCode.F))
             {
-                _characterProvider.Character.GetComponent<ICommandProvider>().Follow(target.transform);
+                _characterProvider.Character.GetComponent<CommandProvider>().Follow(target.transform);
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                _characterProvider.Character.GetComponent<ICommandProvider>().Attack(target);
+                _characterProvider.Character.GetComponent<CommandProvider>().Attack(target);
             }
         }
     }

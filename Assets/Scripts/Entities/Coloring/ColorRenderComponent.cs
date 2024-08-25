@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Sample.Entities
 {
-    public sealed class ColoringComponent : NetworkBehaviour
+    public sealed class ColorRenderComponent : NetworkBehaviour
     {
         [SerializeField]
         private MeshRenderer _renderer;

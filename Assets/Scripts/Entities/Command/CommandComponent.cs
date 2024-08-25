@@ -6,10 +6,12 @@ namespace Sample.Entities
     public sealed class CommandComponent : MonoBehaviour
     {
         private StateMachine _stateMachine;
+        private DealDamageComponent _dealDamageComponent;
 
         private void Awake()
         {
             _stateMachine = this.GetComponent<StateMachine>();
+            _dealDamageComponent = this.GetComponent<DealDamageComponent>();
         }
 
         public void Move(Vector3 position)
@@ -29,7 +31,7 @@ namespace Sample.Entities
 
         public void Attack(GameObject target)
         {
-            
+            _dealDamageComponent.DealDamage(target);
         }
 
         public void Stop()

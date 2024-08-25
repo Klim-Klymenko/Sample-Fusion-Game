@@ -4,17 +4,13 @@ using UnityEngine;
 namespace Sample.Entities
 {
     [RequireComponent(typeof(CommandComponent))]
-    public sealed class CommandProvider : NetworkBehaviour, ICommandProvider
+    public sealed class CommandProvider : NetworkBehaviour
     {
         private CommandComponent _commandComponent;
 
-        public override void Spawned()
+        private void Awake()
         {
             _commandComponent = this.GetComponent<CommandComponent>();
-        }
-
-        public override void Despawned(NetworkRunner runner, bool hasState)
-        {
         }
 
         public void Move(Vector3 position)
