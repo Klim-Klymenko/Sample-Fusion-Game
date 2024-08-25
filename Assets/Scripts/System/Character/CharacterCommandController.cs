@@ -24,7 +24,7 @@ namespace Sample.System
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                _characterProvider.Character.GetComponent<ICommandComponent>().Stop();
+                _characterProvider.Character.GetComponent<ICommandProvider>().Stop();
             }
         }
 
@@ -38,13 +38,13 @@ namespace Sample.System
         {
             if (Input.GetKey(KeyCode.M))
             {
-                _characterProvider.Character.GetComponent<ICommandComponent>().Move(point);
+                _characterProvider.Character.GetComponent<ICommandProvider>().Move(point);
                 return;
             }
 
             if (Input.GetKey(KeyCode.P))
             {
-                _characterProvider.Character.GetComponent<ICommandComponent>().Patrol(point);
+                _characterProvider.Character.GetComponent<ICommandProvider>().Patrol(point);
             }
         }
 
@@ -57,12 +57,12 @@ namespace Sample.System
 
             if (Input.GetKey(KeyCode.F))
             {
-                _characterProvider.Character.GetComponent<ICommandComponent>().Follow(target);
+                _characterProvider.Character.GetComponent<ICommandProvider>().Follow(target.transform);
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                _characterProvider.Character.GetComponent<ICommandComponent>().Attack(target);
+                _characterProvider.Character.GetComponent<ICommandProvider>().Attack(target);
             }
         }
     }

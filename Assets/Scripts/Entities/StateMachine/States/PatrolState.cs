@@ -4,11 +4,13 @@ namespace Sample.Entities
 {
     public sealed class PatrolState : IState
     {
-        private readonly Vector3 position;
+        private readonly Vector3[] waypoints;
+        private int index;
         
-        public PatrolState(Vector3 position)
+        public PatrolState(params Vector3[] waypoints)
         {
-            this.position = position;
+            this.waypoints = waypoints;
+            this.index = 0;
         }
 
         public void Enter(GameObject entity)
@@ -17,7 +19,20 @@ namespace Sample.Entities
 
         public void Update(GameObject entity, float deltaTime)
         {
-            Debug.Log($"PATROL STATE {entity.name}");
+            Vector3 currentPosition = entity.transform.position;
+            Vector3 targetPosition = this.waypoints[this.index];
+            Vector3 distanceVector = targetPosition - currentPosition;
+            
+            StoppingDistanceComponent distanceComponent = entity.GetComponent<StoppingDistanceComponent>();
+
+            if (distanceVector.sqrMagnitude <= distanceComponent.DistanceSqr)
+            {
+                this.index = (this.index + 1) % this.waypoints.Length;
+                return;
+            }
+
+            Vector3 moveDirection = distanceVector.normalized;
+            entity.GetComponent<MovementComponent>().Move(moveDirection, deltaTime);
         }
 
         public void Exit(GameObject entity)
