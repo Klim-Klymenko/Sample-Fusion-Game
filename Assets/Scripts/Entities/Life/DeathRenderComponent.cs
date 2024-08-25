@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Sample.Entities
 {
+    //View
     public sealed class DeathRenderComponent : MonoBehaviour
     {
         [SerializeField]

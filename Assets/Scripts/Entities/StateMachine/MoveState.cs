@@ -30,8 +30,7 @@ namespace Sample.Entities
             Vector3 moveDirection = distanceVector.normalized;
             entity.GetComponent<MovementComponent>().Move(moveDirection, deltaTime);
         }
-
-
+        
         public void Exit(GameObject entity)
         {
         }

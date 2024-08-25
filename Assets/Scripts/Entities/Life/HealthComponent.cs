@@ -5,7 +5,7 @@ namespace Sample.Entities
 {
     public sealed class HealthComponent : NetworkBehaviour
     {
-        [Networked]
+        [Networked] //Host->Client
         public int Health { get; set; }
 
         [SerializeField]

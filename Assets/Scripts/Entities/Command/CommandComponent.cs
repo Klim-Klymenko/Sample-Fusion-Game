@@ -29,6 +29,7 @@ namespace Sample.Entities
             _stateMachine.ChangeState(new PatrolState(position, this.transform.position));
         }
 
+        //Host
         public void Attack(GameObject target)
         {
             _dealDamageComponent.DealDamage(target);

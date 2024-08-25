@@ -39,13 +39,15 @@ namespace Sample.System
         {
             if (Input.GetKey(KeyCode.M))
             {
-                _characterProvider.Character.GetComponent<CommandProvider>().Move(point);
+                GameObject character = _characterProvider.Character;
+                character.GetComponent<CommandProvider>().Move(point);
                 return;
             }
 
             if (Input.GetKey(KeyCode.P))
             {
-                _characterProvider.Character.GetComponent<CommandProvider>().Patrol(point);
+                GameObject character = _characterProvider.Character;
+                character.GetComponent<CommandProvider>().Patrol(point);
             }
         }
 
