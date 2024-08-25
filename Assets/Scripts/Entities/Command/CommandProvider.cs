@@ -8,22 +8,18 @@ namespace Sample.Entities
     {
         private CommandComponent _commandComponent;
 
-        private void Awake()
-        {
-            _commandComponent = this.GetComponent<CommandComponent>();
-        }
+        private void Awake() => _commandComponent = this.GetComponent<CommandComponent>();
 
         public void Move(Vector3 position)
         {
             if (this.Runner.IsClient)
-            {
                 this.RPC_Move(position);
-            }
             else
-            {
                 _commandComponent.Move(position);
-            }
         }
+        
+        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable, InvokeLocal = false)]
+        private void RPC_Move(Vector3 position) => _commandComponent.Move(position);
 
         public void Follow(Transform target)
         {
@@ -73,8 +69,6 @@ namespace Sample.Entities
             }
         }
 
-        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable, InvokeLocal = false)]
-        private void RPC_Move(Vector3 position) => _commandComponent.Move(position);
 
         [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, Channel = RpcChannel.Reliable, InvokeLocal = false)]
         private void RPC_Follow(NetworkObject target) => _commandComponent.Follow(target.transform);

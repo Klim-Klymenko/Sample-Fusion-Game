@@ -11,17 +11,12 @@ namespace Sample.Entities
         [SerializeField]
         private int maxHealth = 10;
 
-        public override void Spawned()
-        {
-            this.Health = this.maxHealth;
-        }
+        public override void Spawned() => this.Health = this.maxHealth;
 
         public void TakeDamage(int damage)
         {
             if (this.Health <= 0)
-            {
                 return;
-            }
 
             this.Health = Mathf.Max(0, Health - damage);
             Debug.Log($"Take Damage {damage}");
